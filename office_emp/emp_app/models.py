@@ -1,6 +1,11 @@
+from django.core.validators import RegexValidator
+from django.contrib.auth.models import User
+
 from django.db import models
 
 # Create your models here.
+class office(models.Model):
+      user=models.ForeignKey(User,on_delete=models.CASCADE)
 class Department(models.Model):
       name=models.CharField(max_length=100,null=False)
       location=models.CharField(max_length=100)
@@ -20,7 +25,12 @@ class Employee(models.Model):
     salary=models.IntegerField(default=0)
     bonous=models.IntegerField(default=0)            
     role=models.ForeignKey(Role,on_delete=models.CASCADE)
-    phone=models.IntegerField(default=0)
+    phone = models.CharField(
+        max_length=15,
+        validators=[RegexValidator(regex=r'^\+?\d{10,15}$', message="Enter a valid phone number.")],
+        null=False,
+        blank=False
+    )
     hire_date=models.DateField()
     
     
