@@ -1,3 +1,4 @@
+
 """
 URL configuration for office_emp project.
 
@@ -15,7 +16,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))"""
 from django.contrib import admin
 from django.urls import path
-from emp_app.views import *
+from emp_app.views  import index, all_emp, add_emp, remove_emp, filter_emp, login_view, logout_view, signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +25,8 @@ urlpatterns = [
     path('add_emp/',add_emp,name='add_emp'),
     path('remove_emp/',remove_emp,name='remove_emp'),
     path('remove_emp/<int:emp_id>',remove_emp,name='remove_emp'),
-    path('filter_emp/',filter_emp,name='filter_emp')
+    path('filter_emp/',filter_emp,name='filter_emp'),
+    path('login/',login_view,name='login'),
+    path('logout/',logout_view,name='logout'),
+    path('signup/',signup,name='signup'),
 ]
