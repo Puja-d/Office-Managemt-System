@@ -76,10 +76,15 @@ WSGI_APPLICATION = 'office_emp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'office_emp_management',
+        'USER':'root',
+        'PASSWORD':'puja@d2003',
+        'HOST':'localhost',
+        'PORT':'3306',
     }
 }
+# LOGIN_URL = '/login/'
 
 
 # Password validation
